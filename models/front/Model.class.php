@@ -13,4 +13,7 @@ abstract class Model{
         }
         return $this->pdo ;
     }
+    public static function sendJson($data){
+        return json_encode($data);
+    }
 }
