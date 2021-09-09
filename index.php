@@ -2,6 +2,10 @@
 define("URL", str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "
 https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
+include "controllers/front/ApiControllers.php";
+
+$controllers = new ApiController ; 
+
 
 if(empty($_GET['page'])){
     require('views/accueil.view.php');
@@ -18,7 +22,7 @@ if(empty($_GET['page'])){
             }
             else if ($url[1] == 'Animaux'){
                 echo "Animaux";
-                var_dump($url);
+                $controllers->getAnimaux();
             }
             else if ($url[1] == 'Animal'){
                 echo "Animal";
