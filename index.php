@@ -8,13 +8,10 @@ $controllers = new ApiController ;
 
 
 if(empty($_GET['page'])){
-    require('views/accueil.view.php');
+    require('index.php');
 }else{
     $url = explode("/", filter_var($_GET['page']), FILTER_SANITIZE_URL);
     switch ($url[0]) {
-        case "Accueil":
-            require "views/accueil.view.php";
-            break;
         case "Front":
             if(empty($url[1])){
                 echo "Partie empty";
@@ -22,11 +19,13 @@ if(empty($_GET['page'])){
             }
             else if ($url[1] == 'Animaux'){
                 echo "Animaux";
-                $controllers->getAnimaux();
+                $controllers->getAllanimauxDB();
             }
             else if ($url[1] == 'Animal'){
+
                 echo "Animal";
-                var_dump($url);
+                $controllers->selectOneAnimalDB($url[2]);
+               
             }
             else if ($url[1] == 'Continents'){
                 echo "Continents";
