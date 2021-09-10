@@ -14,7 +14,7 @@ abstract class Model{
         return $this->pdo ;
     }
     public static function sendJson($data){
-        $json=json_encode($data, JSON_PRETTY_PRINT);
+        $json=json_encode($data);
         header("Access-Control-Allow-Origin: * ");
         header("Content-Type: application/json");
         echo $json ;

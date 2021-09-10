@@ -19,12 +19,12 @@ if(empty($_GET['page'])){
             }
             else if ($url[1] == 'Animaux'){
                 echo "Animaux";
-                $controllers->getAllanimauxDB();
+                $controllers->getAnimauxDB();
             }
             else if ($url[1] == 'Animal'){
 
                 echo "Animal";
-                $controllers->selectOneAnimalDB($url[2]);
+                $controllers->selectOneAnimal($url[2]);
                
             }
             else if ($url[1] == 'Continents'){
